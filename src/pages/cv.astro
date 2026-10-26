@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import { person, experience, education, skills } from '../data/cv';
+---
+
+<Base title="CV" description={`CV of ${person.name}, ${person.role}.`}>
+  <h1>{person.name}</h1>
+  <p class="meta">
+    {person.role} · {person.location} ·
+    <a href={`mailto:${person.email}`}>{person.email}</a>
+  </p>
+  <p class="no-print"><button type="button" onclick="window.print()">Save as PDF</button></p>
+
+  <section aria-labelledby="experience">
+    <h2 id="experience">Experience</h2>
+    <ul class="entries">
+      {experience.map((e) => (
+        <li class="entry">
+          <span class="dates">{e.dates}</span>
+          <div>
+            <h3>{e.title}</h3>
+            <p class="org">{e.org}</p>
+            <p class="summary">{e.summary}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section aria-labelledby="education">
+    <h2 id="education">Education</h2>
+    <ul class="entries">
+      {education.map((e) => (
+        <li class="entry">
+          <span class="dates">{e.dates}</span>
+          <div>
+            <h3>{e.title}</h3>
+            <p class="org">{e.org}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section aria-labelledby="skills">
+    <h2 id="skills">Skills</h2>
+    <ul class="chips">
+      {skills.map((s) => <li>{s}</li>)}
+    </ul>
+  </section>
+</Base>

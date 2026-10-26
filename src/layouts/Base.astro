@@ -1,0 +1,52 @@
+---
+import '../styles/global.css';
+import { person } from '../data/cv';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title, description = person.intro } = Astro.props;
+const pageTitle = title ? `${title} · ${person.name}` : person.name;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const nav = [
+  { href: '/', label: 'About' },
+  { href: '/cv', label: 'CV' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600;700&family=Public+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrap">
+      <nav class="site-nav" aria-label="Main">
+        <a class="home" href="/">{person.name}</a>
+        <ul>
+          {nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <main>
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

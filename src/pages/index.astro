@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import { person } from '../data/cv';
+---
+
+<Base>
+  <h1>{person.name}</h1>
+  <p class="lede">{person.intro}</p>
+  <p class="meta">{person.role} · {person.location}</p>
+
+  <section aria-labelledby="about">
+    <h2 id="about">About</h2>
+    {person.about.map((p) => <p>{p}</p>)}
+  </section>
+
+  <section aria-labelledby="contact">
+    <h2 id="contact">Contact</h2>
+    <p>The best way to reach me is <a href={`mailto:${person.email}`}>{person.email}</a>.</p>
+    <div class="actions">
+      {person.links.map((l) => <a href={l.href} rel="me noopener">{l.label}</a>)}
+      <a href="/cv">View my CV</a>
+    </div>
+  </section>
+</Base>
