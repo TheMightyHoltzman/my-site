@@ -1,0 +1,21 @@
+---
+import { shared, ui, type Lang } from '../data/content';
+import { paths, otherLang } from '../data/paths';
+
+interface Props {
+  lang: Lang;
+  route: 'home' | 'cv';
+}
+const { lang, route } = Astro.props;
+const t = ui[lang];
+const other = otherLang(lang);
+---
+
+<nav class="site-nav" aria-label="Main">
+  <a class="brand" href={paths[lang].home}>{shared.name}</a>
+  <ul>
+    <li><a href={paths[lang].home} aria-current={route === 'home' ? 'page' : undefined}>{t.navAbout}</a></li>
+    <li><a href={paths[lang].cv} aria-current={route === 'cv' ? 'page' : undefined}>{t.navCv}</a></li>
+    <li><a href={paths[other][route]} hreflang={other} lang={other}>{t.switchLabel}</a></li>
+  </ul>
+</nav>

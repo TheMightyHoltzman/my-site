@@ -1,0 +1,320 @@
+// Edit this file: all pages read from it. German (de) is the default, English (en) lives under /en.
+
+export type Lang = 'de' | 'en';
+
+export const shared = {
+  name: 'Heiko Mattern',
+  location: 'Berlin',
+  email: 'matternheiko@gmail.com',
+  photo: '/heiko.jpg',
+  links: [{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/heiko-mattern-1b153372/' }],
+};
+
+export const ui = {
+  de: {
+    htmlLang: 'de',
+    navAbout: 'Über mich',
+    navCv: 'Lebenslauf',
+    switchLabel: 'English',
+    highlights: 'Kurz gesagt',
+    lookingFor: 'Wonach ich suche',
+    contact: 'Kontakt',
+    contactText: 'Am besten erreichst du mich per E-Mail:',
+    viewCv: 'Lebenslauf ansehen',
+    experience: 'Berufserfahrung',
+    education: 'Bildung',
+    skills: 'Kompetenzen',
+    languages: 'Sprachen',
+    print: 'Als PDF speichern',
+    portraitAlt: 'Porträt von Heiko Mattern',
+    cvTitle: 'Lebenslauf',
+    stack: 'Technik:',
+  },
+  en: {
+    htmlLang: 'en',
+    navAbout: 'About',
+    navCv: 'CV',
+    switchLabel: 'Deutsch',
+    highlights: 'In a nutshell',
+    lookingFor: 'What I’m looking for',
+    contact: 'Contact',
+    contactText: 'The best way to reach me is by email:',
+    viewCv: 'View my CV',
+    experience: 'Experience',
+    education: 'Education',
+    skills: 'Skills',
+    languages: 'Languages',
+    print: 'Save as PDF',
+    portraitAlt: 'Portrait of Heiko Mattern',
+    cvTitle: 'CV',
+    stack: 'Stack:',
+  },
+};
+
+export const content = {
+  de: {
+    role: 'Digital Producer',
+    headline: ['Kreative', 'Projekte,', 'gelauncht.'],
+    tagline: 'Projektleitung und kreative Umsetzung im Digitalen',
+    intro:
+      'Ich führe digitale Projekte vom Briefing bis zum Launch und bringe Design, Entwicklung und Auftraggeber:innen zusammen. Nach über 13 Jahren in der Softwareentwicklung, die meisten davon im E-Commerce, wechsle ich in die Projektleitung und kreative Produktion.',
+    lookingFor:
+      'Ich suche eine Rolle in der digitalen Projektleitung oder kreativen Produktion, zum Beispiel als Digital Producer, Projektleiter:in oder Creative Producer, in einer Agentur oder einem Produktteam.',
+    highlights: [
+      '13+ Jahre Erfahrung in der Umsetzung digitaler Produkte, von der Agentur bis zum Konzern-IT-Dienstleister',
+      'Leitung eines Teams von 5 Entwickler:innen und Anleitung von Junior-Kolleg:innen',
+      'Enge Zusammenarbeit mit Design-Teams und Stakeholdern in Scrum und Kanban',
+      'Mandantenfähige, internationale Plattformen für E-Commerce und Lernsoftware bis zum Launch gebracht',
+      'Design- und UX-affin, mit technischem Verständnis für Aufwand und Risiken',
+      'Kommunikativ, verantwortungsbewusst, vorausschauend',
+    ],
+    skillGroups: [
+      {
+        title: 'Projekt und Delivery',
+        items: ['Scrum', 'Kanban', 'Stakeholder-Kommunikation', 'Release-Planung', 'Teamführung', 'Onboarding und Mentoring', 'Jira'],
+      },
+      {
+        title: 'Kreation und Design',
+        items: ['UI/UX', 'Komponentenbibliotheken', 'Zusammenarbeit mit Design-Teams', 'Storybook'],
+      },
+      {
+        title: 'Technik',
+        items: ['React', 'Next.js', 'TypeScript', 'GraphQL', 'Angular', 'Spryker', 'PHP', 'Java', 'Docker', 'GitLab', 'Cypress'],
+      },
+    ],
+    languages: [
+      { name: 'Deutsch', level: 'Muttersprache' },
+      { name: 'Englisch', level: 'Fließend' },
+      { name: 'Spanisch, Französisch', level: 'Grundkenntnisse' },
+    ],
+    experience: [
+      {
+        dates: '08/2021 – 06/2024',
+        title: 'Senior Developer',
+        org: 'Turbine Kreuzberg',
+        href: 'https://turbinekreuzberg.com',
+        place: 'Berlin',
+        about: 'Digitalagentur für eCommerce',
+        tech: 'React, Next.js, GraphQL, GitLab, Cypress, PHP, Spryker, Docker',
+        points: [
+          'Ein mandantenfähiges, internationalisiertes B2B-Shopfrontend vom ersten Entwurf bis zum Launch gebracht, mit Shop, Checkout, Kundenbereich und CMS sowie Zahlungs- und Login-Anbindung (Stripe, Auth0)',
+          'Gemeinsam mit dem Design-Team des Kunden eine React-Komponentenbibliothek aufgebaut, damit Designentscheidungen direkt im Produkt ankommen',
+          'Fortschritt und Umfang mit Stakeholdern in Planning, Refinement, Daily und Review abgestimmt und präsentiert (Scrum/Kanban)',
+          'Deployment-Workflows für Dev, Stage und Production mit automatisierten Tests aufgesetzt, damit Releases wiederholbar sind',
+          'Junior-Developer:innen angeleitet und neue Mitarbeiter:innen eingearbeitet',
+          'Laufende Projekte mit Bugsnag, Sentry und Lighthouse überwacht',
+        ],
+      },
+      {
+        dates: '01/2020 – 08/2020',
+        title: 'Lead Frontend Developer',
+        org: 'simpleshow GmbH',
+        href: 'https://simpleshow.com',
+        place: 'Berlin',
+        about: 'Digitalagentur für Explainer-Video',
+        tech: 'AngularJS, Angular, Redux, Jenkins, Docker',
+        points: [
+          'Ein Team von 5 Entwickler:innen geleitet',
+          'Version 2 des Video-Editors weiterentwickelt und bis zum Launch gebracht',
+          'Den Release-Zyklus betreut',
+        ],
+      },
+      {
+        dates: '01/2018 – 12/2019',
+        title: 'Professional Developer',
+        org: 'Deutsche Post DHL IT Services GmbH',
+        href: 'https://group.dhl.com/en/about-us/corporate-divisions/it-services.html',
+        place: 'Berlin',
+        about: 'IT-Dienstleister der Deutsche Post DHL Group',
+        tech: 'Java, Spring Boot, Angular, TeamCity',
+        points: [
+          'Eine neue Registrierung für das E-Post-Produkt entwickelt und den Upgradeprozess für bestehende Nutzer:innen verbessert',
+          'Sechs Microservices im Betrieb gehalten: Monitoring, Bugfixing und Testing',
+          'Das hauseigene Fleet-Management weiterentwickelt',
+        ],
+      },
+      {
+        dates: '06/2014 – 12/2017',
+        title: 'Professional Developer',
+        org: 'Amboss GmbH',
+        href: 'https://www.amboss.com/',
+        place: 'Köln',
+        about: 'Lernsoftware für Medizin-Studenten und Ärzte',
+        tech: 'PHP, Symfony, MySQL, JavaScript, Composer, Doctrine, jQuery',
+        points: [
+          'Die Kliniksuche STEIGBÜGEL entwickelt und gelauncht',
+          'AMBOSS internationalisiert und mandantenfähig gemacht',
+          'Klinikdaten, Weiterbildungsberechtigungen und Stellenanzeigen importiert',
+          'Den Newsletter betreut, von Styling bis Versand',
+        ],
+      },
+      {
+        dates: '03/2012 – 12/2013',
+        title: 'Junior Developer',
+        org: 'oarcIT GmbH',
+        href: 'https://www.parcit.de',
+        place: 'Köln',
+        about: 'Software für Risikomanagement und Controlling',
+        tech: 'Java, Swing, Ant',
+        points: ['Import, Anzeige und Bearbeitung von Marktdaten umgesetzt'],
+      },
+      {
+        dates: '06/2011 – 02/2012',
+        title: 'Praktikant / Junior Developer',
+        org: 'wergehthin',
+        place: 'Köln',
+        about: 'Eventsite für Köln und Berlin',
+        tech: 'PHP, Drupal, jQuery',
+        points: ['Eine selbst gebaute Event-Seite nach Drupal migriert'],
+      },
+    ],
+    education: [
+      {
+        dates: '09/2007 – 05/2011',
+        title: 'Bachelor of Science, Mathematik',
+        org: 'Ruhr-Universität Bochum',
+        detail:
+          'Abschlussnote 2,2. Nebenfach Informatik. Bachelorarbeit: The probabilistic method with applications in additive combinatorics.',
+      },
+      {
+        dates: '09/2006 – 06/2007',
+        title: 'Leaving Certificate',
+        org: 'Colaiste Stiofain Naofa, Cork (Irland)',
+        detail: 'Äquivalent zum deutschen Abitur.',
+      },
+    ],
+  },
+
+  en: {
+    role: 'Digital Producer',
+    headline: ['Creative', 'projects,', 'launched.'],
+    tagline: 'Project leadership and creative delivery in digital',
+    intro:
+      'I lead digital projects from brief to launch, bringing designers, developers and clients together. After 13+ years in software, most of them building e-commerce, I’m moving into project management and creative production.',
+    lookingFor:
+      'I’m looking for a role in digital project management or creative production, for example as a Digital Producer, Project Lead or Creative Producer, at an agency or in a product team.',
+    highlights: [
+      '13+ years delivering digital products, from agencies to a corporate IT provider',
+      'Led a team of 5 developers and mentored junior colleagues',
+      'Worked closely with design teams and stakeholders in Scrum and Kanban',
+      'Took multi-tenant, international e-commerce and learning platforms to launch',
+      'Design and UX minded, with the technical depth to judge effort and risk',
+      'Communicative, accountable, forward-looking',
+    ],
+    skillGroups: [
+      {
+        title: 'Project and delivery',
+        items: ['Scrum', 'Kanban', 'Stakeholder communication', 'Release planning', 'Team leadership', 'Onboarding and mentoring', 'Jira'],
+      },
+      {
+        title: 'Creative and design',
+        items: ['UI/UX', 'Component libraries', 'Working with design teams', 'Storybook'],
+      },
+      {
+        title: 'Technical',
+        items: ['React', 'Next.js', 'TypeScript', 'GraphQL', 'Angular', 'Spryker', 'PHP', 'Java', 'Docker', 'GitLab', 'Cypress'],
+      },
+    ],
+    languages: [
+      { name: 'German', level: 'Native' },
+      { name: 'English', level: 'Fluent' },
+      { name: 'Spanish, French', level: 'Basic' },
+    ],
+    experience: [
+      {
+        dates: '08/2021 – 06/2024',
+        title: 'Senior Developer',
+        org: 'Turbine Kreuzberg',
+        href: 'https://turbinekreuzberg.com',
+        place: 'Berlin',
+        about: 'Digital agency for e-commerce',
+        tech: 'React, Next.js, GraphQL, GitLab, Cypress, PHP, Spryker, Docker',
+        points: [
+          'Took a multi-tenant, internationalised B2B shop frontend from first build to launch, covering shop, checkout, customer area and CMS, with payment and login integrations (Stripe, Auth0)',
+          'Built a React component library together with the client’s design team, so design decisions carried straight into the product',
+          'Presented progress and aligned on scope with stakeholders in planning, refinement, daily and review sessions (Scrum/Kanban)',
+          'Set up deployment workflows for dev, stage and production with automated testing, so releases were repeatable',
+          'Coached junior developers and onboarded new colleagues',
+          'Monitored live projects with Bugsnag, Sentry and Lighthouse',
+        ],
+      },
+      {
+        dates: '01/2020 – 08/2020',
+        title: 'Lead Frontend Developer',
+        org: 'simpleshow GmbH',
+        href: 'https://simpleshow.com',
+        place: 'Berlin',
+        about: 'Digital agency for explainer video',
+        tech: 'AngularJS, Angular, Redux, Jenkins, Docker',
+        points: [
+          'Led a team of 5 developers',
+          'Developed version 2 of the video editor and took it to launch',
+          'Ran the release cycle',
+        ],
+      },
+      {
+        dates: '01/2018 – 12/2019',
+        title: 'Professional Developer',
+        org: 'Deutsche Post DHL IT Services GmbH',
+        href: 'https://group.dhl.com/en/about-us/corporate-divisions/it-services.html',
+        place: 'Berlin',
+        about: 'IT service provider of Deutsche Post DHL Group',
+        tech: 'Java, Spring Boot, Angular, TeamCity',
+        points: [
+          'Built a new registration flow for the E-Post product and improved the upgrade process for existing users',
+          'Kept six microservices running: monitoring, bug fixing and testing',
+          'Further developed the in-house fleet management',
+        ],
+      },
+      {
+        dates: '06/2014 – 12/2017',
+        title: 'Professional Developer',
+        org: 'Amboss GmbH',
+        href: 'https://www.amboss.com/',
+        place: 'Cologne',
+        about: 'Learning software for medical students and doctors',
+        tech: 'PHP, Symfony, MySQL, JavaScript, Composer, Doctrine, jQuery',
+        points: [
+          'Developed and launched STEIGBÜGEL, a clinic search',
+          'Made AMBOSS international and multi-tenant',
+          'Imported clinic data, training authorisations and job ads',
+          'Looked after the newsletter, from styling to sending',
+        ],
+      },
+      {
+        dates: '03/2012 – 12/2013',
+        title: 'Junior Developer',
+        org: 'oarcIT GmbH',
+        href: 'https://www.parcit.de',
+        place: 'Cologne',
+        about: 'Software for risk management and controlling',
+        tech: 'Java, Swing, Ant',
+        points: ['Implemented import, display and editing of market data'],
+      },
+      {
+        dates: '06/2011 – 02/2012',
+        title: 'Intern / Junior Developer',
+        org: 'wergehthin',
+        place: 'Cologne',
+        about: 'Event site for Cologne and Berlin',
+        tech: 'PHP, Drupal, jQuery',
+        points: ['Migrated a custom-built events site to Drupal'],
+      },
+    ],
+    education: [
+      {
+        dates: '09/2007 – 05/2011',
+        title: 'Bachelor of Science, Mathematics',
+        org: 'Ruhr University Bochum',
+        detail:
+          'Grade 2.2 (“good” on the German scale). Minor in computer science. Thesis: The probabilistic method with applications in additive combinatorics.',
+      },
+      {
+        dates: '09/2006 – 06/2007',
+        title: 'Leaving Certificate',
+        org: 'Colaiste Stiofain Naofa, Cork (Ireland)',
+        detail: 'Equivalent to the German Abitur.',
+      },
+    ],
+  },
+};

@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import { shared, ui, content, type Lang } from '../data/content';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const c = content[lang];
+---
+
+<Base lang={lang} route="cv" tone="paper" title={t.cvTitle} description={`${t.cvTitle} ${shared.name}: ${c.role}, ${shared.location}.`}>
+  <header class="band">
+    <div class="wrap">
+      <Nav lang={lang} route="cv" />
+      <h1 class="cv-title">{shared.name}</h1>
+      <p class="cv-role">{c.role}</p>
+      <p class="cv-contact">{shared.location} · <a href={`mailto:${shared.email}`}>{shared.email}</a></p>
+    </div>
+  </header>
+
+  <div class="wrap page">
+    <p class="no-print save"><button type="button" onclick="window.print()">{t.print}</button></p>
+
+    <section class="block" aria-labelledby="experience">
+      <h2 id="experience">{t.experience}</h2>
+      <ul class="entries">
+        {c.experience.map((e) => (
+          <li class="entry">
+            <p class="dates">{e.dates}</p>
+            <h3>{e.title}</h3>
+            <p class="org">
+              {e.href ? <a href={e.href} rel="noopener">{e.org}</a> : e.org}, {e.place}. {e.about}
+            </p>
+            <ul class="points">
+              {e.points.map((p) => <li>{p}</li>)}
+            </ul>
+            <p class="tech">{t.stack} {e.tech}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="block" aria-labelledby="skills">
+      <h2 id="skills">{t.skills}</h2>
+      <div>
+        {c.skillGroups.map((g) => (
+          <div class="skill">
+            <h3>{g.title}</h3>
+            <p>{g.items.join(', ')}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="education">
+      <h2 id="education">{t.education}</h2>
+      <ul class="entries">
+        {c.education.map((e) => (
+          <li class="entry">
+            <p class="dates">{e.dates}</p>
+            <h3>{e.title}</h3>
+            <p class="org">{e.org}</p>
+            <p>{e.detail}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section class="block" aria-labelledby="languages">
+      <h2 id="languages">{t.languages}</h2>
+      <ul class="rows">
+        {c.languages.map((l) => <li><strong>{l.name}</strong>: {l.level}</li>)}
+      </ul>
+    </section>
+  </div>
+</Base>

@@ -1,52 +1,45 @@
 ---
 import '../styles/global.css';
-import { person } from '../data/cv';
+import { shared, ui, content, type Lang } from '../data/content';
+import { paths } from '../data/paths';
 
 interface Props {
+  lang: Lang;
+  route: 'home' | 'cv';
+  tone: 'field' | 'paper';
   title?: string;
   description?: string;
 }
 
-const { title, description = person.intro } = Astro.props;
-const pageTitle = title ? `${title} · ${person.name}` : person.name;
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
-const nav = [
-  { href: '/', label: 'Über mich' },
-  { href: '/cv', label: 'CV' },
-];
+const { lang, route, tone, title, description } = Astro.props;
+const t = ui[lang];
+const c = content[lang];
+const pageTitle = title ? `${title} · ${shared.name}` : `${shared.name} · ${c.role}`;
+const desc = description ?? c.intro;
+const abs = (p: string) => new URL(p, Astro.site).href;
 ---
 
 <!doctype html>
-<html lang="de">
+<html lang={t.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#2438FF" />
     <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={desc} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <link rel="canonical" href={abs(paths[lang][route])} />
+    <link rel="alternate" hreflang="de" href={abs(paths.de[route])} />
+    <link rel="alternate" hreflang="en" href={abs(paths.en[route])} />
+    <link rel="alternate" hreflang="x-default" href={abs(paths.de[route])} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@600;700&family=Public+Sans:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Public+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body>
-    <div class="wrap">
-      <nav class="site-nav" aria-label="Main">
-        <a class="home" href="/">{person.name}</a>
-        <ul>
-          {nav.map((item) => (
-            <li>
-              <a href={item.href} aria-current={path === item.href ? 'page' : undefined}>{item.label}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <main>
-        <slot />
-      </main>
-    </div>
+  <body class={`tone-${tone}`}>
+    <main><slot /></main>
   </body>
 </html>

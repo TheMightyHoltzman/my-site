@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import Nav from './Nav.astro';
+import { shared, ui, content, type Lang } from '../data/content';
+import { paths } from '../data/paths';
+
+interface Props { lang: Lang }
+const { lang } = Astro.props;
+const t = ui[lang];
+const c = content[lang];
+---
+
+<Base lang={lang} route="home" tone="field">
+  <div class="wrap page">
+    <Nav lang={lang} route="home" />
+
+    <div class="hero">
+      <div>
+        <h1 class="headline">{c.headline.map((line) => <span>{line}</span>)}</h1>
+        <p class="byline">{shared.name}, {c.role}, {shared.location}</p>
+      </div>
+      <div class="portrait">
+        <img src={shared.photo} alt={t.portraitAlt} width="320" height="320" />
+      </div>
+    </div>
+
+    <p class="lede">{c.intro}</p>
+
+    <section class="block" aria-labelledby="looking">
+      <h2 id="looking">{t.lookingFor}</h2>
+      <p>{c.lookingFor}</p>
+    </section>
+
+    <section class="block" aria-labelledby="nutshell">
+      <h2 id="nutshell">{t.highlights}</h2>
+      <ul class="rows">
+        {c.highlights.map((item) => <li>{item}</li>)}
+      </ul>
+    </section>
+
+    <section class="block" aria-labelledby="contact">
+      <h2 id="contact">{t.contact}</h2>
+      <div>
+        <p>{t.contactText}</p>
+        <p><a class="mail" href={`mailto:${shared.email}`}>{shared.email}</a></p>
+        <p class="actions">
+          {shared.links.map((l) => <a href={l.href} rel="me noopener">{l.label}</a>)}
+          <a href={paths[lang].cv}>{t.viewCv}</a>
+        </p>
+      </div>
+    </section>
+  </div>
+</Base>
