@@ -114,3 +114,12 @@ section { margin-top: 3.5rem; }
   section { margin-top: 1.5rem; }
   h1 { font-size: 28pt; }
 }
+
+.hero { display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+.avatar { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; border: 2px solid var(--ink); }
+.plain { list-style: none; margin: 0; padding: 0; }
+.plain li { padding: 0.15rem 0; }
+.points { margin: 0.5rem 0 0; padding-left: 1.1rem; }
+.points li { margin-bottom: 0.2rem; }
+.entry .tech { color: var(--muted); font-size: 0.92rem; margin: 0.35rem 0 0; }
+@media print { .avatar { display: none; } .hero { display: block; } }

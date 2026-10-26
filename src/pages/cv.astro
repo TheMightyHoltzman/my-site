@@ -1,26 +1,31 @@
 ---
 import Base from '../layouts/Base.astro';
-import { person, experience, education, skills } from '../data/cv';
+import { person, experience, education, tools } from '../data/cv';
 ---
 
-<Base title="CV" description={`CV of ${person.name}, ${person.role}.`}>
+<Base title="Lebenslauf" description={`Lebenslauf von ${person.name}, ${person.role} in ${person.location}.`}>
   <h1>{person.name}</h1>
   <p class="meta">
     {person.role} · {person.location} ·
     <a href={`mailto:${person.email}`}>{person.email}</a>
   </p>
-  <p class="no-print"><button type="button" onclick="window.print()">Save as PDF</button></p>
+  <p class="no-print"><button type="button" onclick="window.print()">Als PDF speichern</button></p>
 
   <section aria-labelledby="experience">
-    <h2 id="experience">Experience</h2>
+    <h2 id="experience">Berufserfahrung</h2>
     <ul class="entries">
       {experience.map((e) => (
         <li class="entry">
           <span class="dates">{e.dates}</span>
           <div>
             <h3>{e.title}</h3>
-            <p class="org">{e.org}</p>
-            <p class="summary">{e.summary}</p>
+            <p class="org">
+              {e.href ? <a href={e.href} rel="noopener">{e.org}</a> : e.org}, {e.place} · {e.about}
+            </p>
+            <p class="tech">Tech: {e.tech}</p>
+            <ul class="points">
+              {e.points.map((p) => <li>{p}</li>)}
+            </ul>
           </div>
         </li>
       ))}
@@ -28,7 +33,7 @@ import { person, experience, education, skills } from '../data/cv';
   </section>
 
   <section aria-labelledby="education">
-    <h2 id="education">Education</h2>
+    <h2 id="education">Bildung</h2>
     <ul class="entries">
       {education.map((e) => (
         <li class="entry">
@@ -36,16 +41,17 @@ import { person, experience, education, skills } from '../data/cv';
           <div>
             <h3>{e.title}</h3>
             <p class="org">{e.org}</p>
+            <p class="summary">{e.detail}</p>
           </div>
         </li>
       ))}
     </ul>
   </section>
 
-  <section aria-labelledby="skills">
-    <h2 id="skills">Skills</h2>
+  <section aria-labelledby="tools">
+    <h2 id="tools">Tools</h2>
     <ul class="chips">
-      {skills.map((s) => <li>{s}</li>)}
+      {tools.map((t) => <li>{t}</li>)}
     </ul>
   </section>
 </Base>

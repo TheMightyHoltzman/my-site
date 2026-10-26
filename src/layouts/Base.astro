@@ -11,13 +11,13 @@ const { title, description = person.intro } = Astro.props;
 const pageTitle = title ? `${title} · ${person.name}` : person.name;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const nav = [
-  { href: '/', label: 'About' },
+  { href: '/', label: 'Über mich' },
   { href: '/cv', label: 'CV' },
 ];
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
